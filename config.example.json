@@ -1,0 +1,265 @@
+{
+ "_comment": "Example configuration with GENERIC values. Copy to config.json and edit. Missing keys fall back to built-in defaults (see openroles_radar/config.py). Regexes are case-insensitive for titles/roles; skills/gaps and family text patterns are matched on lowercase text.",
+ "data_dir": "./data",
+ "companies_file": "companies.json",
+ "min_interval_seconds": 0.25,
+ "deny_slugs": [],
+ "location": {
+  "home_country_terms": [
+   "germany",
+   "deutschland"
+  ],
+  "home_country_cities": [
+   "berlin",
+   "munich",
+   "münchen",
+   "hamburg",
+   "frankfurt",
+   "cologne",
+   "köln",
+   "stuttgart"
+  ],
+  "home_region_terms": [
+   "berlin",
+   "brandenburg"
+  ]
+ },
+ "salary": {
+  "min_annual_eur": 50000,
+  "employee": true
+ },
+ "roles": {
+  "families": [
+   {
+    "name": "infrastructure",
+    "primary": true,
+    "title_patterns": [
+     [
+      "system(s)? (administrator|engineer)|sysadmin|infrastructure|it operations|network (engineer|administrator)|site reliability|\\bsre\\b|devops|cloud (engineer|administrator|operations)",
+      3
+     ]
+    ],
+    "text_pattern": "windows server|active directory|linux|vmware|proxmox|kubernetes|docker|terraform|ansible|aws|azure|gcp|monitoring|backup|virtuali[sz]ation|network|firewall"
+   },
+   {
+    "name": "it-management",
+    "primary": true,
+    "title_patterns": [
+     [
+      "it (service )?manager|head of it|it lead|it operations manager|service delivery|service desk manager|it coordinator",
+      3
+     ]
+    ],
+    "text_pattern": "itil|service management|incident|change management|vendor management|it governance|budget|sla|service desk|stakeholder"
+   },
+   {
+    "name": "project-management",
+    "primary": false,
+    "title_patterns": [
+     [
+      "(project|program|programme|delivery) manager|scrum master|project coordinator|pmo",
+      3
+     ]
+    ],
+    "text_pattern": "project management|agile|scrum|kanban|prince2|pmp|roadmap|stakeholder|planning|risk management|delivery"
+   },
+   {
+    "name": "business-analysis",
+    "primary": false,
+    "title_patterns": [
+     [
+      "business analyst|process (analyst|improvement|manager)|product owner|functional analyst|systems analyst",
+      3
+     ]
+    ],
+    "text_pattern": "requirements|business process|process improvement|bpmn|user stories|workflow|gap analysis|business analysis|uat"
+   },
+   {
+    "name": "security-compliance",
+    "primary": false,
+    "title_patterns": [
+     [
+      "security (analyst|engineer|officer|specialist)|compliance (analyst|manager|specialist)|information security|\\bgrc\\b|\\bciso\\b|data protection",
+      3
+     ]
+    ],
+    "text_pattern": "iso 27001|gdpr|nis2|risk assessment|audit|policy|incident response|vulnerability|compliance|security awareness"
+   },
+   {
+    "name": "technical-writing",
+    "primary": false,
+    "title_patterns": [
+     [
+      "technical writer|documentation (engineer|specialist|manager)|knowledge manager",
+      3
+     ]
+    ],
+    "text_pattern": "documentation|technical writing|knowledge base|runbook|style guide|docs-as-code|markdown"
+   },
+   {
+    "name": "automation",
+    "primary": false,
+    "title_patterns": [
+     [
+      "automation (engineer|specialist|developer)|rpa|integration (engineer|specialist)",
+      3
+     ]
+    ],
+    "text_pattern": "automation|workflow|api|integration|scripting|python|powershell|low-code|no-code|zapier|n8n|rpa"
+   }
+  ],
+  "hard_negative_regex": "\\b(intern(ship)?|trainee|apprentice|working student|werkstudent|junior|entry[- ]level|sales|account executive|business development|recruit(er|ing)|talent acquisition|marketing|legal counsel|paralegal|designer|nurse|driver|warehouse)\\b",
+  "dev_negative_regex": "\\b(software (engineer|developer)|frontend|front-end|backend|back-end|full[- ]?stack|data scientist|machine learning|ios|android)\\b",
+  "extra_title_patterns": [
+   [
+    "it support (specialist|engineer|analyst)|helpdesk|service desk (analyst|engineer)",
+    2,
+    "it-management"
+   ]
+  ]
+ },
+ "profile": {
+  "skills": [
+   [
+    "windows server|active directory|\\bad\\b|group policy",
+    "Windows Server / Active Directory"
+   ],
+   [
+    "linux|ubuntu|debian|red hat|rhel",
+    "Linux"
+   ],
+   [
+    "vmware|proxmox|hyper-v|virtuali[sz]ation",
+    "Virtualization"
+   ],
+   [
+    "kubernetes|docker|container",
+    "Containers"
+   ],
+   [
+    "aws|azure|gcp|google cloud",
+    "Public cloud"
+   ],
+   [
+    "ansible|terraform|infrastructure as code",
+    "Infrastructure as code"
+   ],
+   [
+    "itil|service management|incident management|change management",
+    "ITIL / service management"
+   ],
+   [
+    "project management|prince2|pmp|agile|scrum",
+    "Project management"
+   ],
+   [
+    "iso 27001|gdpr|nis2|compliance|audit",
+    "Security & compliance"
+   ],
+   [
+    "documentation|technical writing|runbook|knowledge base",
+    "Documentation"
+   ],
+   [
+    "automation|scripting|powershell|python|bash",
+    "Automation / scripting"
+   ],
+   [
+    "monitoring|zabbix|nagios|prometheus|grafana",
+    "Monitoring"
+   ]
+  ],
+  "gaps": [
+   [
+    "\\b(8|9|10|12|15)\\+? years",
+    "Asks for 8+ years of experience",
+    "weak"
+   ],
+   [
+    "on[- ]call|24/7|24x7",
+    "On-call / 24x7 duty"
+   ],
+   [
+    "security clearance|\\bsc clearance\\b",
+    "Security clearance required"
+   ],
+   [
+    "fluent (in )?(german|french|dutch|swedish)|native (german|french|dutch)",
+    "Requires another language at native level"
+   ],
+   [
+    "travel (up to )?[3-9]0%|frequent travel|willing to travel",
+    "Significant travel"
+   ]
+  ]
+ },
+ "scoring": {
+  "weights": {
+   "skills": 2.0,
+   "location": 1.5,
+   "pay": 1.0,
+   "role": 2.0,
+   "risk": 1.5
+  },
+  "skill_thresholds": [
+   1,
+   3,
+   5,
+   7
+  ]
+ },
+ "shortlist": {
+  "min_score": 4.0,
+  "max_items": 10
+ },
+ "aggregators": {
+  "enabled": [
+   "We Work Remotely",
+   "RemoteOK",
+   "Remotive",
+   "Arbeitnow",
+   "Himalayas",
+   "Jobicy",
+   "Landing.jobs",
+   "Working Nomads",
+   "Jobspresso",
+   "NoDesk"
+  ],
+  "himalayas": {
+   "country": "Germany",
+   "queries": [
+    "systems administrator",
+    "it manager",
+    "infrastructure",
+    "project manager",
+    "business analyst",
+    "security compliance",
+    "technical writer",
+    "automation"
+   ]
+  },
+  "jobicy_geos": [
+   "germany",
+   "europe",
+   "emea",
+   "anywhere"
+  ],
+  "wwr_categories": [
+   "remote-devops-sysadmin-jobs",
+   "remote-project-management-jobs",
+   "remote-management-and-finance-jobs"
+  ],
+  "remotive_categories": [
+   "devops",
+   "project-management",
+   "business"
+  ]
+ },
+ "rotation": {
+  "cadence_days": {
+   "blocked": 60,
+   "partial": 28,
+   "explored": 42
+  }
+ }
+}

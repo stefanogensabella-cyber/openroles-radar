@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "openroles-radar"
+version = "0.1.0"
+description = "Incremental, read-only scanner of public job postings (ATS APIs and aggregator feeds). Standard library only."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+dependencies = []
+
+[project.scripts]
+openroles-radar = "openroles_radar.cli:main"
+
+[tool.setuptools]
+packages = ["openroles_radar"]

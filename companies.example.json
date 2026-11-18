@@ -1,0 +1,101 @@
+{
+ "_comment": "Example list of public companies with public ATS boards. 'ats' is optional: run `python3 -m openroles_radar map` to discover and verify slugs, or fill it by hand with verified=true. companies.json (your real list) is git-ignored.",
+ "companies": [
+  {
+   "name": "GitLab",
+   "careers_url": "https://about.gitlab.com/jobs/",
+   "ats": [
+    {
+     "ats": "greenhouse",
+     "slug": "gitlab",
+     "verified": true,
+     "evidence": "manual"
+    }
+   ]
+  },
+  {
+   "name": "Airbnb",
+   "careers_url": "https://careers.airbnb.com/",
+   "ats": [
+    {
+     "ats": "greenhouse",
+     "slug": "airbnb",
+     "verified": true,
+     "evidence": "manual"
+    }
+   ]
+  },
+  {
+   "name": "Cloudflare",
+   "careers_url": "https://www.cloudflare.com/careers/jobs/",
+   "ats": [
+    {
+     "ats": "greenhouse",
+     "slug": "cloudflare",
+     "verified": true,
+     "evidence": "manual"
+    }
+   ]
+  },
+  {
+   "name": "Spotify",
+   "careers_url": "https://www.lifeatspotify.com/jobs",
+   "ats": [
+    {
+     "ats": "lever",
+     "slug": "spotify",
+     "verified": true,
+     "evidence": "manual"
+    }
+   ]
+  },
+  {
+   "name": "Palantir",
+   "careers_url": "https://www.palantir.com/careers/",
+   "ats": [
+    {
+     "ats": "lever",
+     "slug": "palantir",
+     "verified": true,
+     "evidence": "manual"
+    }
+   ]
+  },
+  {
+   "name": "Notion",
+   "careers_url": "https://www.notion.so/careers",
+   "ats": [
+    {
+     "ats": "ashby",
+     "slug": "notion",
+     "verified": true,
+     "evidence": "manual"
+    }
+   ]
+  },
+  {
+   "name": "Ramp",
+   "careers_url": "https://ramp.com/careers",
+   "ats": [
+    {
+     "ats": "ashby",
+     "slug": "ramp",
+     "verified": true,
+     "evidence": "manual"
+    }
+   ]
+  },
+  {
+   "name": "Bosch",
+   "careers_url": "https://careers.smartrecruiters.com/BoschGroup",
+   "ats": [
+    {
+     "ats": "smartrecruiters",
+     "slug": "BoschGroup",
+     "verified": true,
+     "evidence": "manual"
+    }
+   ]
+  }
+ ]
+}

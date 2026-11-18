@@ -1,0 +1,30 @@
+# personal data and outputs: never commit
+data/
+output/
+config.json
+companies.json
+handled.json
+coverage.json
+seen.json
+*.bak
+*.bak-*
+*.log
+cache/
+cvs/
+drafts/
+reports/
+candidates*
+shortlist-*.md
+scan-log*
+totals*
+
+# python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+build/
+dist/
+*.egg-info/
+.pytest_cache/
+.DS_Store
